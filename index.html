@@ -40,6 +40,30 @@
 </head>
 
 <body>
+	
+	
+	<div id="cookie-notification" class="CookieMessage" style="display: none;">
+        <div class="CookieMessage-content"> 
+          <p>Este site utiliza cookies de navegação para a melhor experiência do usuário. <a href="https://exemplo/politicas-de-privacidade">Saiba mais</a></p>
+          <p><a id="cookie-notification-close" class="CookieMessage-button" href="#">Aceitar</a></p>          
+        </div>
+      </div>
+    <script>
+        if (!localStorage.getItem("cookiesAccepted")) { 
+        var cookieMessage = document.getElementById('cookie-notification');  
+        var closeCookie = document.getElementById('cookie-notification-close');
+        
+        cookieMessage.style.display = 'block';  
+        closeCookie.addEventListener("click", function(e) {  
+          e.preventDefault();
+          localStorage.setItem("cookiesAccepted", true);
+          
+          cookieMessage.style.display = 'none';
+        });
+      }
+      
+    </script>
+	
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
